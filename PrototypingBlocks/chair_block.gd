@@ -1,24 +1,47 @@
-extends TextureRect
+extends Control
 
+var seated_customer: Customer = null
+@onready var panel = $Panel
 
-func _get_drag_data(at_position):
-	var preview_texture = TextureRect.new()
-	
-	preview_texture.texture = texture
-	preview_texture.expand_mode = 1
-	preview_texture.size = Vector2(30,30)
-	
-	var preview = Control.new()
-	preview.add_child(preview_texture)
-	
-	set_drag_preview(preview)
-	
-	texture = null
-	return preview_texture.texture
+func _ready():
+	mouse_filter = Control.MOUSE_FILTER_PASS
 
 func _can_drop_data(_pos, data):
-	return data is Texture2D
-
+	print("Chair: Can drop data? ", data is Customer and seated_customer == null)
+	return data is Customer and seated_customer == null
 
 func _drop_data(_pos, data):
-	texture = data
+	print("Chair: Dropping customer ", data.customer_id)
+	seated_customer = data
+	
+	# Remove customer from original position
+	data.get_parent().remove_child(data)
+	
+	# Add customer to the chair
+	add_child(data)
+	
+	# Position customer on the chair
+	data.position = Vector2.ZERO
+	data.size = panel.size
+	
+	print("Customer ", data.customer_id, " seated!")
+
+func remove_customer():
+	if seated_customer != null:
+		remove_child(seated_customer)
+		seated_customer = null
+		print("Customer removed from chair")
+
+func _get_drag_data(at_position):
+	if seated_customer != null:
+		var preview = Control.new()
+		var preview_sprite = AnimatedSprite2D.new()
+		preview_sprite.sprite_frames = seated_customer.animated_sprite.sprite_frames
+		preview_sprite.animation = seated_customer.animated_sprite.animation
+		preview_sprite.scale = Vector2(0.5, 0.5)
+		
+		preview.add_child(preview_sprite)
+		set_drag_preview(preview)
+		
+		return seated_customer
+	return null

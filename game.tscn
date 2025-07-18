@@ -78,16 +78,31 @@ position = Vector2(584, 432)
 [node name="Customers" type="Node" parent="."]
 
 [node name="CustomerBlock" parent="Customers" instance=ExtResource("3_feb5d")]
-position = Vector2(791, 359)
+offset_left = 823.0
+offset_top = 333.0
+offset_right = 823.0
+offset_bottom = 333.0
 
 [node name="CustomerBlock2" parent="Customers" instance=ExtResource("3_feb5d")]
-position = Vector2(847, 359)
+offset_left = 837.0
+offset_top = 372.0
+offset_right = 837.0
+offset_bottom = 372.0
 
 [node name="CustomerBlock3" parent="Customers" instance=ExtResource("3_feb5d")]
-position = Vector2(911, 359)
+offset_left = 867.0
+offset_top = 326.0
+offset_right = 867.0
+offset_bottom = 326.0
 
 [node name="CustomerBlock4" parent="Customers" instance=ExtResource("3_feb5d")]
-position = Vector2(975, 359)
+offset_left = 875.0
+offset_top = 408.0
+offset_right = 875.0
+offset_bottom = 408.0
 
 [node name="CustomerBlock5" parent="Customers" instance=ExtResource("3_feb5d")]
-position = Vector2(1039, 359)
+offset_left = 900.0
+offset_top = 363.0
+offset_right = 900.0
+offset_bottom = 363.0

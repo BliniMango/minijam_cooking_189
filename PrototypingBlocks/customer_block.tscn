@@ -1,8 +1,68 @@
-[gd_scene format=3 uid="uid://7rrdjxiqina3"]
+[gd_scene load_steps=8 format=3 uid="uid://7rrdjxiqina3"]
 
-[node name="CustomerBlock" type="CharacterBody2D"]
+[ext_resource type="Script" uid="uid://cgutj1qg4ahdn" path="res://PrototypingBlocks/customer_block.gd" id="1_dn16t"]
+[ext_resource type="Texture2D" uid="uid://d1567td8f864g" path="res://Sprites/Customers/Zomi.png" id="2_ed2ci"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.714787, 0.296784, 0.802912, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pcqo"]
+atlas = ExtResource("2_ed2ci")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6twx"]
+atlas = ExtResource("2_ed2ci")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5p5b"]
+atlas = ExtResource("2_ed2ci")
+region = Rect2(32, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljpgq"]
+atlas = ExtResource("2_ed2ci")
+region = Rect2(48, 24, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_beh8g"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pcqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6twx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5p5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljpgq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"waiting",
+"speed": 5.0
+}]
+
+[node name="CustomerBlock" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_dn16t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.75, 1.75)
+sprite_frames = SubResource("SpriteFrames_beh8g")
+animation = &"idle"
+autoplay = "idle"
+flip_h = true
