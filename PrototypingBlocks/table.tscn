@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1nkyaxuuuwir"]
 
-[ext_resource type="Script" uid="uid://by18l6e0musdm" path="res://PrototypingBlocks/texture_rect.gd" id="1_jytm4"]
+[ext_resource type="Script" uid="uid://by18l6e0musdm" path="res://PrototypingBlocks/table.gd" id="1_jytm4"]
 
-[node name="TextureRect" type="TextureRect"]
+[node name="Chair" type="TextureRect"]
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0

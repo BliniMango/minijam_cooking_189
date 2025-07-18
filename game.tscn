@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ceroll33ilov5"]
 
 [ext_resource type="PackedScene" uid="uid://be1yj70o0v04x" path="res://PrototypingBlocks/table_block.tscn" id="1_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://b1nkyaxuuuwir" path="res://PrototypingBlocks/texture_rect.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://b1nkyaxuuuwir" path="res://PrototypingBlocks/table.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://7rrdjxiqina3" path="res://PrototypingBlocks/customer_block.tscn" id="3_feb5d"]
 
 [node name="Game" type="Node2D"]
@@ -78,16 +78,16 @@ position = Vector2(584, 432)
 [node name="Customers" type="Node" parent="."]
 
 [node name="CustomerBlock" parent="Customers" instance=ExtResource("3_feb5d")]
-position = Vector2(216, 568)
+position = Vector2(264, 536)
 
 [node name="CustomerBlock2" parent="Customers" instance=ExtResource("3_feb5d")]
-position = Vector2(280, 568)
+position = Vector2(320, 536)
 
 [node name="CustomerBlock3" parent="Customers" instance=ExtResource("3_feb5d")]
-position = Vector2(344, 568)
+position = Vector2(384, 536)
 
 [node name="CustomerBlock4" parent="Customers" instance=ExtResource("3_feb5d")]
-position = Vector2(408, 568)
+position = Vector2(448, 536)
 
 [node name="CustomerBlock5" parent="Customers" instance=ExtResource("3_feb5d")]
-position = Vector2(472, 568)
+position = Vector2(512, 536)
