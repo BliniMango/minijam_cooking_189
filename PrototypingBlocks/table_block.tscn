@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://be1yj70o0v04x"]
+[gd_scene load_steps=2 format=3 uid="uid://be1yj70o0v04x"]
+
+[ext_resource type="Texture2D" uid="uid://ddfdrs2u8ft4e" path="res://Sprites/Furniture/16x16_table_blue.png" id="1_k2igw"]
 
 [node name="TableBlock" type="StaticBody2D"]
+disable_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 60.0
-offset_bottom = 60.0
-color = Color(0.529216, 0.258135, 0.0890231, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_k2igw")
