@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl6o61yp7q1v"]
+
+[ext_resource type="Texture2D" uid="uid://ddfdrs2u8ft4e" path="res://Sprites/Furniture/16x16_table_blue.png" id="1_8ggdh"]
+[ext_resource type="Script" uid="uid://dx6ms6w8qw7pi" path="res://Scripts/RS/table.gd" id="1_ghod8"]
+[ext_resource type="Texture2D" uid="uid://gvkcexmbjl2e" path="res://Sprites/Furniture/16x16_chair02.png" id="2_wrs3u"]
+
+[node name="Table" type="Area2D"]
+script = ExtResource("1_ghod8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="ClickArea" type="Area2D" parent="."]
+
+[node name="ClickCollision" type="CollisionShape2D" parent="ClickArea"]
+
+[node name="TableSprite" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_8ggdh")
+
+[node name="SeatPositions2" type="Node2D" parent="."]
+
+[node name="Seat1" type="Node2D" parent="SeatPositions2"]
+position = Vector2(-56, -16)
+scale = Vector2(2.5, 2.5)
+
+[node name="16x16Chair02" type="Sprite2D" parent="SeatPositions2/Seat1"]
+texture = ExtResource("2_wrs3u")
+
+[node name="Seat2" type="Node2D" parent="SeatPositions2"]
+position = Vector2(-56, 16)
+scale = Vector2(2.5, 2.5)
+
+[node name="16x16Chair02" type="Sprite2D" parent="SeatPositions2/Seat2"]
+texture = ExtResource("2_wrs3u")
+
+[node name="Seat3" type="Node2D" parent="SeatPositions2"]
+position = Vector2(56, -16)
+scale = Vector2(2.5, 2.5)
+
+[node name="16x16Chair03" type="Sprite2D" parent="SeatPositions2/Seat3"]
+texture = ExtResource("2_wrs3u")
+flip_h = true
+
+[node name="Seat4" type="Node2D" parent="SeatPositions2"]
+position = Vector2(56, 16)
+scale = Vector2(2.5, 2.5)
+
+[node name="16x16Chair02" type="Sprite2D" parent="SeatPositions2/Seat4"]
+texture = ExtResource("2_wrs3u")
+flip_h = true
+
+[node name="SeatedCostomers" type="Node2D" parent="."]

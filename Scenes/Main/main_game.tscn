@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://bntr4o0o5x2wp"]
+
+[ext_resource type="PackedScene" uid="uid://c5s78bciwa1hd" path="res://PrototypingBlocks/wall_smlit.tscn" id="1_fuggr"]
+[ext_resource type="PackedScene" uid="uid://dl6o61yp7q1v" path="res://Scenes/Resturant/table.tscn" id="2_ovqq6"]
+
+[node name="MainGame" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.0735158, 0.0750015, 0.175329, 1)
+
+[node name="WallSmlit" parent="." instance=ExtResource("1_fuggr")]
+position = Vector2(576, 0)
+
+[node name="Table" parent="." instance=ExtResource("2_ovqq6")]
+position = Vector2(120, 224)
+
+[node name="Table2" parent="." instance=ExtResource("2_ovqq6")]
+position = Vector2(120, 344)
+
+[node name="Table3" parent="." instance=ExtResource("2_ovqq6")]
+position = Vector2(280, 344)
+
+[node name="Table4" parent="." instance=ExtResource("2_ovqq6")]
+position = Vector2(432, 344)
+
+[node name="Table5" parent="." instance=ExtResource("2_ovqq6")]
+position = Vector2(432, 224)
+
+[node name="Table6" parent="." instance=ExtResource("2_ovqq6")]
+position = Vector2(280, 224)
