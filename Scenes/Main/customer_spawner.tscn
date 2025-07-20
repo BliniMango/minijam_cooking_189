@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfxtao8it2t5g"]
+
+[ext_resource type="Script" uid="uid://5v6nqhmqvjmd" path="res://Scripts/MS/customer_spawner.gd" id="1_8lfv4"]
+
+[node name="CustomerSpawner" type="Node"]
+script = ExtResource("1_8lfv4")

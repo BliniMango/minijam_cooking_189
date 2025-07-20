@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dguxaqusdygxn" path="res://Sprites/Foods/Dishcover.png" id="2_h58tk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h58tk"]
-size = Vector2(40, 40)
+size = Vector2(40, 20)
 
 [sub_resource type="Animation" id="Animation_i50ay"]
 resource_name = "Indicator"
@@ -54,8 +54,11 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_4ao71")
 
 [node name="PickupArea" type="Area2D" parent="."]
+light_mask = 0
+visibility_layer = 32768
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_h58tk")
 
 [node name="FoodReadyIndicator" type="Sprite2D" parent="."]

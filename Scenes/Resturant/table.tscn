@@ -1,51 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl6o61yp7q1v"]
+[gd_scene load_steps=6 format=3 uid="uid://dl6o61yp7q1v"]
 
 [ext_resource type="Texture2D" uid="uid://ddfdrs2u8ft4e" path="res://Sprites/Furniture/16x16_table_blue.png" id="1_8ggdh"]
 [ext_resource type="Script" uid="uid://dx6ms6w8qw7pi" path="res://Scripts/RS/table.gd" id="1_ghod8"]
 [ext_resource type="Texture2D" uid="uid://gvkcexmbjl2e" path="res://Sprites/Furniture/16x16_chair02.png" id="2_wrs3u"]
 
-[node name="Table" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghod8"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1x8v"]
+size = Vector2(64, 64)
+
+[node name="Table" type="Area2D" groups=["table"]]
 script = ExtResource("1_ghod8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("RectangleShape2D_ghod8")
+debug_color = Color(0.709308, 0.476114, 0.282258, 0.42)
 
 [node name="ClickArea" type="Area2D" parent="."]
+light_mask = 0
+visibility_layer = 8
 
 [node name="ClickCollision" type="CollisionShape2D" parent="ClickArea"]
+z_index = 1
+shape = SubResource("RectangleShape2D_m1x8v")
+debug_color = Color(0.300756, 0.616056, 0.358508, 0.42)
 
 [node name="TableSprite" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
 texture = ExtResource("1_8ggdh")
 
-[node name="SeatPositions2" type="Node2D" parent="."]
+[node name="SeatPositions" type="Node2D" parent="."]
 
-[node name="Seat1" type="Node2D" parent="SeatPositions2"]
+[node name="Seat1" type="Node2D" parent="SeatPositions" groups=["seats"]]
+light_mask = 128
+visibility_layer = 2
 position = Vector2(-56, -16)
 scale = Vector2(2.5, 2.5)
 
-[node name="16x16Chair02" type="Sprite2D" parent="SeatPositions2/Seat1"]
+[node name="16x16Chair02" type="Sprite2D" parent="SeatPositions/Seat1"]
 texture = ExtResource("2_wrs3u")
 
-[node name="Seat2" type="Node2D" parent="SeatPositions2"]
+[node name="Seat2" type="Node2D" parent="SeatPositions" groups=["seats"]]
+light_mask = 128
+visibility_layer = 2
 position = Vector2(-56, 16)
 scale = Vector2(2.5, 2.5)
 
-[node name="16x16Chair02" type="Sprite2D" parent="SeatPositions2/Seat2"]
+[node name="16x16Chair02" type="Sprite2D" parent="SeatPositions/Seat2"]
 texture = ExtResource("2_wrs3u")
 
-[node name="Seat3" type="Node2D" parent="SeatPositions2"]
+[node name="Seat3" type="Node2D" parent="SeatPositions" groups=["seats"]]
+light_mask = 128
+visibility_layer = 2
 position = Vector2(56, -16)
 scale = Vector2(2.5, 2.5)
 
-[node name="16x16Chair03" type="Sprite2D" parent="SeatPositions2/Seat3"]
+[node name="16x16Chair03" type="Sprite2D" parent="SeatPositions/Seat3"]
 texture = ExtResource("2_wrs3u")
 flip_h = true
 
-[node name="Seat4" type="Node2D" parent="SeatPositions2"]
+[node name="Seat4" type="Node2D" parent="SeatPositions" groups=["seats"]]
+light_mask = 128
+visibility_layer = 2
 position = Vector2(56, 16)
 scale = Vector2(2.5, 2.5)
 
-[node name="16x16Chair02" type="Sprite2D" parent="SeatPositions2/Seat4"]
+[node name="16x16Chair02" type="Sprite2D" parent="SeatPositions/Seat4"]
 texture = ExtResource("2_wrs3u")
 flip_h = true
 
