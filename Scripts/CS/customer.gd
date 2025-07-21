@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 enum State { WAITING_IN_QUEUE, BEING_DRAGGED, SEATED, READY_TO_ORDER, WAITING_FOR_FOOD, EATING }
 var current_state = State.WAITING_IN_QUEUE
-
 var customer_group: Array[CharacterBody2D] = []  
 var group_leader: bool = false
 var is_being_dragged: bool = false
@@ -21,6 +20,8 @@ func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
 		if current_state == State.WAITING_IN_QUEUE:
 			start_dragging_group()
+		elif not event.pressed and is_being_dragged:
+			stop_dragging_group()
 
 func start_dragging_group():
 	for customer in customer_group:
@@ -47,7 +48,15 @@ func sit_at_position(seat_pos: Vector2):
 	current_state = State.SEATED
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", seat_pos, 0.3)
-	get_node("../CustomerSpawner").on_group_seated()
+	tween.tween_callback(func():
+		current_state = State.READY_TO_ORDER
+		get_node("../CustomerSpawner").on_group_seated()
+		)
+	
+func stop_dragging_group():
+	for customer in customer_group:
+		customer.is_being_dragged = false
+		customer.current_state = State. WAITING_IN_QUEUE
 
 func set_seated_state():
 	current_state = State.SEATED
